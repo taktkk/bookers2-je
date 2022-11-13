@@ -1,0 +1,17 @@
+<% if tags.present? %>
+<p>tag 一覧</p>
+  <div class="row">
+    <% tags.each do |tag| %>
+      <%= link_to books_path(tag: tag.name),class:"mx-1" do %>
+        <div class="col d-flex justify-content-between align-items-center btn btn-secondary" >
+          <%= "# #{tag.name}" %>
+          <span class="badge badge-primary badge-pill">
+            <%= "#{tag.taggings_count}"%>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <p>登録されているタグはありません</p>
+<% end %>

@@ -16,6 +16,11 @@
         <label for="book_opinion">Opinion</label></br>
           <%= f.text_area :body %>
     	</div>
+
+      <div class="form-group">
+        <%= f.label :tag_list, "タグ(,で複数指定できます)" %>
+        <%= f.text_field :tag_list, value: book.tag_list.join(',') ,class:"form-control tag_form" %>
+      </div>
     	
     	<div class="form-group">
         <br><%= f.submit 'Create Book', class: 'btn btn-sm btn-success' %></br>

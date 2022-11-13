@@ -18,8 +18,13 @@ class BooksController < ApplicationController
   
   def index
     @book = Book.new
-    @books = Book.all
     @user = current_user
+    if params[:tag]
+      @books=Book.tagged_with(params[:tag])
+    else
+      @books=Book.all
+    end
+    @tags=Book.tag_counts_on(:tags).most_used(10)
   end 
   
   def create
