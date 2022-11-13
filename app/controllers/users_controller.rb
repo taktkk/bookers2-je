@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   
   before_action :correct_user, only: [:edit, :update]
+  before_action :set_q, only: [:index, :search]
+
   
   def index
     @users = User.all
@@ -33,9 +35,17 @@ class UsersController < ApplicationController
       render 'users/edit'
     end  
   end
+
+  def search
+    @results = @q.result
+  end
   
   
   private
+
+  def set_q
+    @q = User.ransack(params[:q])
+  end
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
