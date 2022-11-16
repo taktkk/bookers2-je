@@ -38,6 +38,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       
       ## 名前を保存するカラム
       t.string :name
+      
+      t.integer :prefecture_code
+      t.string :postal_code
+      t.string :city
+      t.string :street
+      
      
       
       

@@ -101,6 +101,10 @@ ActiveRecord::Schema.define(version: 2022_11_13_103662) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.integer "prefecture_code"
+    t.string "postal_code"
+    t.string "city"
+    t.string "street"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "introduction"
